@@ -15,11 +15,20 @@
         }
     </script>
     <style>
-        body { font-family: 'Courier New', Courier, monospace}
+        body { 
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #logo {
+            height: 50px;
+        }
     </style>
 </head>
 <body>
-    <h1>Glimpse ID</h1>
+    <img id="logo" src="logo.png"/>
+    <hr>
+    <p style="padding-bottom:10px;"></p>
+
     <form id="url-submit" onsubmit="return screenshot_url(this);">
         <input name="url" type="text" placeholder="url">
         <input name="Submit" type="submit" value="Screenshot">
