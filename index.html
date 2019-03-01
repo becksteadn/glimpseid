@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <title>Glimpse ID</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="glimpse.js"></script>
+    <script type="text/javascript">
+        function screenshot_url(submitForm) {
+            //$(".scan-status").text("Scanning in progress.");
+            $("#screenshot-viewer").attr("src", "loading-bars.svg")
+            //$(".url-display").text(submitForm.url.value);
+            $.when(screenshot(submitForm.url.value)).done(function() {
+               //$(".scan-status").text("Scan complete.");
+            });
+            return false;
+        }
+    </script>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace}
+    </style>
+</head>
+<body>
+    <h1>Glimpse ID</h1>
+    <form id="url-submit" onsubmit="return screenshot_url(this);">
+        <input name="url" type="text" placeholder="url">
+        <input name="Submit" type="submit" value="Screenshot">
+    </form>
+    <h2 class="scan-status"></h2>
+    <h4 class="url-display"></h4>
+    <img id="screenshot-viewer" src="" />
+</body>
