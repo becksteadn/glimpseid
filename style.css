@@ -1,0 +1,52 @@
+body { 
+    font-family: 'Raleway', 'Courier New', Courier, monospace;
+}
+
+#logo {
+    height: 50px;
+}
+
+#url-input {
+    width: 25%;
+}
+
+#screenshot-viewer {
+    height: 400px;
+    transition-duration: 2s;
+}
+
+.tip {
+    color: #55555;
+    width: 30%;
+    font-size: 80%;
+    opacity: 0.6;
+}
+
+.row {
+    background-color: #ebebeb
+}
+
+.column {
+    padding: 25px;
+    float: left;
+    width: 30%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+a,
+a span {
+display: inline-block;
+}
+a span {
+transition: .5s;
+}
+a:hover span {
+-webkit-transform: rotateX(360deg);
+transform: rotateX(360deg);
+}

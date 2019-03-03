@@ -3,6 +3,17 @@
     <title>Glimpse ID</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="glimpse.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90662247-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-90662247-1');
+    </script>
     <script type="text/javascript">
         function screenshot_url(submitForm) {
             //$(".scan-status").text("Scanning in progress.");
@@ -14,26 +25,37 @@
             return false;
         }
     </script>
-    <style>
-        body { 
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-        #logo {
-            height: 50px;
-        }
-    </style>
 </head>
 <body>
-    <img id="logo" src="logo.png"/>
+    <a href="index.html"><img id="logo" src="logo.png"/></a>
     <hr>
     <p style="padding-bottom:10px;"></p>
 
+    <p class="tip">Enter in a URL (including the http or https) and hit the scan button to have Glimpse load the page in a remote browser and take a screenshot.</p>
+
     <form id="url-submit" onsubmit="return screenshot_url(this);">
-        <input name="url" type="text" placeholder="url">
-        <input name="Submit" type="submit" value="Screenshot">
+        <input id="url-input" name="url" type="text" placeholder="url">
+        <input name="Submit" type="submit" value="Scan">
     </form>
     <h2 class="scan-status"></h2>
     <h4 class="url-display"></h4>
     <img id="screenshot-viewer" src="" />
+
+    <div class="row">
+        <div class="column">
+            <h3>About</h3>
+            <p>I used <a href="https://urlscan.io"><span>urlscan.io</span></a> a lot at my internship. Afterwards I built <a href="https://github.com/becksteadn/HTTP-Info"><span>HTTP Info</span></a>, a Docker container to screenshot a website and record HTTP requests and responses that occur when visiting the site.</p>
+            <p>This is an extension of that project. Glimpse utilizes multiple AWS services such as Lambda, S3, and API Gateway.</p>
+        </div>
+        <div class="column">
+            <h3>Find Me</h3>
+            <p><a href="https://github.com/becksteadn/glimpse/"><span>Glimpse Repo</span></a></p>
+            <p><a href="https://scriptingis.life"><span>My Blog</span></a></p>
+            <p><a href="https://github.com/becksteadn/"><span>GitHub</span></a></p>
+        </div>
+        <div class="column">
+            
+        </div>
+    </div>
+
 </body>
