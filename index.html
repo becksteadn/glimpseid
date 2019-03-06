@@ -15,17 +15,6 @@
 
     gtag('config', 'UA-90662247-1');
     </script>
-    <script type="text/javascript">
-        function screenshot_url(submitForm) {
-            //$(".scan-status").text("Scanning in progress.");
-            $("#screenshot-viewer").attr("src", "loading-bars.svg")
-            //$(".url-display").text(submitForm.url.value);
-            $.when(screenshot(submitForm.url.value)).done(function() {
-               //$(".scan-status").text("Scan complete.");
-            });
-            return false;
-        }
-    </script>
     <script src="glimpse.js"></script>
     <link href="style.css" rel="stylesheet">
 </head>
@@ -35,11 +24,12 @@
     <p style="padding-bottom:10px;"></p>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
     <center>
         <div class="container">
             <br/>
                 <div class="col-12 col-md-10 col-lg-8">
-                    <form class="card card-sm" onsubmit="return screenshot_url(this);">
+                    <form class="card card-sm" id="form-override" onsubmit="return screenshot_url(this);">
                         <div class="card-body row no-gutters align-items-center" id="container-override">
                             <div class="col-auto">
                                 <i class="fas fa-search h4 text-body"></i>
@@ -58,7 +48,6 @@
         <div class="container">
             <p class="tip" id="scan-hint">Enter in a URL (including the http or https) and hit the scan button to have Glimpse load the page in a remote browser and take a screenshot.</p>
         </div>
-
     </center>
 
     <h2 class="scan-status"></h2>
@@ -67,7 +56,7 @@
         <img id="screenshot-viewer" src="" />
     </center>
 
-    <div class="row">
+    <div class="row footer">
         <div class="column">
             <h3>About</h3>
             <p>I used <a href="https://urlscan.io"><span>urlscan.io</span></a> a lot at my internship. Afterwards I built <a href="https://github.com/becksteadn/HTTP-Info"><span>HTTP Info</span></a>, a Docker container to screenshot a website and record HTTP requests and responses that occur when visiting the site.</p>
@@ -78,9 +67,6 @@
             <p><a href="https://github.com/becksteadn/glimpse/"><span>Glimpse Repo</span></a></p>
             <p><a href="https://scriptingis.life"><span>My Blog</span></a></p>
             <p><a href="https://github.com/becksteadn/"><span>GitHub</span></a></p>
-        </div>
-        <div class="column">
-            
         </div>
     </div>
 

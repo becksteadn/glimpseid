@@ -3,7 +3,7 @@ body {
 }
 
 #logo {
-    height: 50px;
+    height: 80px;
     padding-top: 10px;
     padding-left: 10px;
 }
@@ -13,7 +13,7 @@ body {
 }
 
 #screenshot-viewer {
-    height: 400px;
+    height: 200px;
     transition-duration: 2s;
 }
 
@@ -31,7 +31,7 @@ body {
 .column {
     padding: 25px;
     float: left;
-    width: 30%;
+    width: 45%;
 }
 
 /* Clear floats after the columns */
@@ -40,6 +40,13 @@ body {
     display: table;
     clear: both;
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
 
 a,
 a span {
@@ -69,6 +76,10 @@ transform: rotateX(360deg);
 
 #container-override {
     background-color: #ebebeb;
+}
+
+#form-override {
+    -moz-transform: scale(0.8);
 }
 
 #btn-override {

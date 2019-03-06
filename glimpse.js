@@ -1,5 +1,17 @@
 var API_URL = "https://x73ay0u3sb.execute-api.us-east-1.amazonaws.com/Beta/"
 
+function screenshot_url(submitForm) {
+    //$(".scan-status").text("Scanning in progress.");
+    $("#screenshot-viewer").height("200px");
+    $("#screenshot-viewer").css("box-shadow", "none")
+    $("#screenshot-viewer").attr("src", "loading-bars.svg")
+    //$(".url-display").text(submitForm.url.value);
+    $.when(screenshot(submitForm.url.value)).done(function() {
+       //$(".scan-status").text("Scan complete.");
+    });
+    return false;
+}
+
 function screenshot(url) {
     $.when($.ajax(API_URL + "screenshot?url=" + encodeURIComponent(url))).done(function(data, textStatus, jqXHR) {
         var json = JSON.parse(jqXHR.responseText);
