@@ -3,9 +3,9 @@
     <title>Glimpse ID</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90662247-1"></script>
     <script>
@@ -19,43 +19,44 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <a href="index.html"><img id="logo" src="logo.png"/></a>
-    <hr>
-    <p style="padding-bottom:10px;"></p>
+    <div class="main-container">
+        <a href="index.html"><img id="logo" src="logo.png"/></a>
+        <hr>
+        <p style="padding-bottom:10px;"></p>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
-    <center>
-        <div class="container">
-            <br/>
-                <div class="col-12 col-md-10 col-lg-8">
-                    <form class="card card-sm" id="form-override" onsubmit="return screenshot_url(this);">
-                        <div class="card-body row no-gutters align-items-center" id="container-override">
-                            <div class="col-auto">
-                                <i class="fas fa-search h4 text-body"></i>
+        <center>
+            <div class="container">
+                <br/>
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <form class="card card-sm" id="form-override" onsubmit="return screenshot_url(this);">
+                            <div class="card-body row no-gutters align-items-center" id="container-override">
+                                <div class="col-auto">
+                                    <i class="fas fa-search h4 text-body"></i>
+                                </div>
+                                <div class="col">
+                                    <input class="form-control form-control-lg form-control-borderless" type="text" name="url" placeholder="Scan a URL">
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-lg btn-success" id="btn-override" type="submit">Scan</button>
+                                </div>
                             </div>
-                            <div class="col">
-                                <input class="form-control form-control-lg form-control-borderless" type="text" name="url" placeholder="Scan a URL">
-                            </div>
-                            <div class="col-auto">
-                                <button class="btn btn-lg btn-success" id="btn-override" type="submit">Scan</button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                </div>
             </div>
-        </div>
 
-        <div class="container">
-            <p class="tip" id="scan-hint">Enter in a URL (including the http or https) and hit the scan button to have Glimpse load the page in a remote browser and take a screenshot.</p>
-        </div>
-    </center>
+            <div class="container">
+                <p class="tip" id="scan-hint">Enter in a URL (including the http or https) and hit the scan button to have Glimpse load the page in a remote browser and take a screenshot.</p>
+            </div>
+        </center>
 
-    <h2 class="scan-status"></h2>
-    <h4 class="url-display"></h4>
-    <center>
-        <img id="screenshot-viewer" src="" />
-    </center>
-
+        <h2 class="scan-status"></h2>
+        <h4 class="url-display"></h4>
+        <center>
+            <img id="screenshot-viewer" src="" />
+        </center>
+    </div>
     <div class="row footer">
         <div class="column">
             <h3>About</h3>

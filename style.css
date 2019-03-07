@@ -18,7 +18,7 @@ body {
 }
 
 .tip {
-    color: #55555;
+    color: #555555;
     width: 30%;
     font-size: 90%;
     opacity: 0.6;
@@ -42,11 +42,8 @@ body {
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-  }
+
+}
 
 a,
 a span {
@@ -82,9 +79,14 @@ transform: rotateX(360deg);
     -moz-transform: scale(0.8);
 }
 
+.fa-search {
+    margin-right: 10px;
+}
+
 #btn-override {
     background-color: red;
     border-color: red;
+    margin-left: 10px;
 }
 
 #btn-override:focus {
