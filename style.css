@@ -22,9 +22,28 @@ body {
 .tip {
     color: #555555;
     width: 30%;
-    font-size: 90%;
+    font-size: 110%;
     opacity: 0.6;
 }
+
+.tooltip {
+    visibility: hidden;
+    color: #000000;
+    background-color: white;
+    left: 55%;
+    width: 30%;
+    font-size: 110%;
+    opacity: 1.0;
+    padding: 10px;
+    border: 2px solid orange;
+    border-radius: 5px;
+    box-shadow: 5px orange;
+}
+
+.tip:hover .tooltip {
+    visibility: visible;
+}
+
 
 .row {
     background-color: #ebebeb
