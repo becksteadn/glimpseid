@@ -42,6 +42,9 @@ body {
     visibility: visible;
 }
 
+.info {
+    font-family: 'Source Code Pro';
+}
 
 .row {
     background-color: #ebebeb
