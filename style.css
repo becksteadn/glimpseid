@@ -33,9 +33,9 @@ body {
     font-size: 110%;
     opacity: 1.0;
     padding: 10px;
-    border: 2px solid orange;
+    border: 2px solid rgb(255, 115, 0);
     border-radius: 5px;
-    box-shadow: 5px 5px orange;
+    box-shadow: 5px 5px rgb(255, 115, 0);
 }
 
 .tip:hover .tooltip {

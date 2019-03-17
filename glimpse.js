@@ -15,7 +15,7 @@ function screenshot_url(submitForm) {
 
 function screenshot(url) {
     var force_update = document.getElementById('force-update').checked;
-    $.when($.ajax(API_URL + "screenshot?url=" + encodeURIComponent(url) + "&update=" + force_update).done(function(data, textStatus, jqXHR) {
+    $.when($.ajax(API_URL + "scan?url=" + encodeURIComponent(url) + "&update=" + force_update).done(function(data, textStatus, jqXHR) {
         var json = JSON.parse(jqXHR.responseText);
         if (json.hasOwnProperty('errorMessage')){
             $("#screenshot-viewer").attr("src", "");
