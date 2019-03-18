@@ -1,6 +1,6 @@
 #screenshot-viewer {
-    height: 600px;
-    transition-duration: 0s;
+    height: 0px;
+    transition-duration: 1s;
     margin-top: 50px;
     margin-bottom: 50px;
     box-shadow: 5px 5px 5px 5px gray;
