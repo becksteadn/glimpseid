@@ -48,6 +48,7 @@ function get_scan_data(){
         $("#title").text(json.Item.title.S);
         $("#url").text(json.Item.url.S);
         $("#time").text("Scanned at " + json.Item.timescanned.S);
+        $("#numscans").text("Scanned " + json.Item.numscans.N + " times.");
         $("#screenshot-viewer").attr("src", "https://glimpsefiles.s3.amazonaws.com/screenshots/" + json.Item.urlhash.S + ".png");
     }));
 }
