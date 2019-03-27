@@ -3,8 +3,9 @@ language: python
 addons:
   firefox: latest
 env:
-- MOZ_HEADLESS=1
-- BASE_URL="http://localhost:5500/"
+  global:
+    - MOZ_HEADLESS=1
+    - BASE_URL="http://localhost:5500/"
 
 services:
   - docker
@@ -17,6 +18,8 @@ before_install:
 
 script:
   - whereis firefox
+  - make run
+  - make stop
 
 before_deploy:
   - cd $TRAVIS_BUILD_DIR
