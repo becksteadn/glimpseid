@@ -1,5 +1,5 @@
-var API_URL = "https://x73ay0u3sb.execute-api.us-east-1.amazonaws.com/Beta/";
-var bobbyboi = "";
+var ENV = "test";
+var API_URL = "https://x73ay0u3sb.execute-api.us-east-1.amazonaws.com/" + ENV + "/";
 
 function screenshot_url(submitForm) {
     //$(".scan-status").text("Scanning in progress.");
@@ -49,7 +49,7 @@ function get_scan_data(){
         $("#effectiveurl").text(json.Item.effectiveurl.S);
         $("#time").text("Scanned at " + json.Item.timescanned.S);
         $("#numscans").text("Scanned " + json.Item.numscans.N + " times.");
-        $("#screenshot-viewer").attr("src", "https://glimpsefiles.s3.amazonaws.com/screenshots/" + json.Item.urlhash.S + ".png");
+        $("#screenshot-viewer").attr("src", "https://glimpsefiles.s3.amazonaws.com/" + ENV + "/screenshots/" + json.Item.urlhash.S + ".png");
         $("#screenshot-viewer").height("600px");
     }));
 }
