@@ -23,6 +23,7 @@ script:
 
 before_deploy:
   - cd $TRAVIS_BUILD_DIR
+  - sed -i -e 's/var ENV = \"test\";/var ENV = \"run\";/g' src/glimpse.js
 
 deploy:
   provider: pages
