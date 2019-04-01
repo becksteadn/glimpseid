@@ -1,4 +1,4 @@
-var ENV = "test";
+var ENV = "run";
 var API_URL = "https://x73ay0u3sb.execute-api.us-east-1.amazonaws.com/" + ENV + "/";
 
 function screenshot_url(submitForm) {
