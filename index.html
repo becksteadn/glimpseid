@@ -81,6 +81,27 @@
             <p><a href="https://github.com/becksteadn/"><span>GitHub Profile</span></a></p>
             <p><a href="https://scriptingis.life"><span>My Blog</span></a></p>
         </div>
+        <div class="column">
+            <h3>Support Me</h3>
+            <p>Make a small donation to help this project grow.</p>
+            <div class="quid-slider"
+            quid-amount="0.50"
+            quid-currency="USD"
+            quid-text="Give a Little"
+            quid-product-id="P0001"
+            quid-product-url="index.html"
+            quid-product-name="Support Me"
+            quid-product-description="Help make Glimpse better!"
+            />    
+        </div>
     </div>
 
+    <link rel="stylesheet" href="https://js.quid.works/v1/assets/quid.css">
+    <script src="https://js.quid.works/v1/client.js"></script>
+    <script>
+        quid.autoInit({
+        apiKey: 'kt-7F893DSD9B60G4ZXCK61H65EDZ83LQIJ',
+        onPaymentSuccess: 'index.html'
+        });
+    </script>
 </body>
