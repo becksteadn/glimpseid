@@ -21,18 +21,24 @@
     <link href="styles/style.css" rel="stylesheet">
     <link href="styles/scan.css" rel="stylesheet">
     <link href="styles/checkbox.css" rel="stylesheet">
+    <!--
     <script>
         $(document).ready(get_scan_data());
     </script>
+    -->
 </head>
 <body>
     <center>
-        <a href="index.html"><img id="logo" src="images/logo.png" /></a><br>
-        <img id="screenshot-viewer" src="" />
-        <h3 class="info" id="title">title</h3>
-        <p class="info"><span style="font-weight: bold">Scanned URL: </span><span id="url">$url</span></p>
-        <p class="info"><span style="font-weight: bold">Effective URL: </span><span id="effectiveurl">$effectiveurl</span></p>
-        <p class="info" id="time">Scan</p>
-        <P class="info" id="numscans">Times Scanned</P>
+        <div id="scan">
+            <a href="index.html"><img id="logo" src="images/logo.png" /></a><br>
+            <img id="screenshot-viewer" :src="screenshot_url" :height="img_height"/>
+            <h3 class="info" id="title"><p>{{ title }}</p></h3>
+            <p class="info"><span style="font-weight: bold">Scanned URL: </span><span id="url">{{ url }}</span></p>
+            <p class="info"><span style="font-weight: bold">Effective URL: </span><span id="effectiveurl">{{ effectiveurl }}</span></p>
+            <p class="info" id="time">{{ time }}</p>
+            <p class="info" id="numscans">{{ numscans }}</p>
+        </div>
     </center>
+
+    <script src="scripts/scanned.js"></script>
 </body>
