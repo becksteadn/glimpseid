@@ -6,7 +6,7 @@ function screenshot_url(submitForm) {
     $(".url-display").text("")
     $("#screenshot-viewer").height("200px");
     $("#screenshot-viewer").css("box-shadow", "none")
-    $("#screenshot-viewer").attr("src", "loading-bars.svg")
+    $("#screenshot-viewer").attr("src", "images/loading-bars.svg")
     //$(".url-display").text(submitForm.url.value);
     $.when(screenshot(submitForm.url.value)).done(function() {
        //$(".scan-status").text("Scan complete.");
