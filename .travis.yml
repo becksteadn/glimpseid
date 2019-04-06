@@ -35,7 +35,8 @@ deploy:
   keep_history: true
   verbose: true
   on:
-    branch: build
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^build|frontend|backend$
 
 notifications:
   slack:
