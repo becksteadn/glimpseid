@@ -53,11 +53,7 @@ body {
 .column {
     padding: 25px;
     float: left;
-<<<<<<< HEAD:styles/style.css
     width: 33%;
-=======
-    width: 30%;
->>>>>>> master:style.css
 }
 
 /* Clear floats after the columns */
