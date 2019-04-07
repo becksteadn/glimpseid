@@ -24,7 +24,7 @@ script:
 
 before_deploy:
   - cd $TRAVIS_BUILD_DIR
-  - sed -i -e 's/var ENV = \"test\";/var ENV = \"run\";/g' src/glimpse.js
+  - sed -i -e 's/var ENV = \"test\";/var ENV = \"run\";/g' src/scripts/glimpse.js
 
 deploy:
   provider: pages
@@ -36,7 +36,8 @@ deploy:
   keep_history: true
   verbose: true
   on:
-    branch: build
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^build|frontend|backend$
 
 notifications:
   slack:
