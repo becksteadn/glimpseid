@@ -19,6 +19,7 @@ before_install:
 script:
   - whereis firefox
   - make run
+  - python3 tests/test.py
   - make stop
 
 before_deploy:
