@@ -16,9 +16,6 @@ before_install:
   - chmod +x geckodriver
   - sudo mv geckodriver /usr/local/bin
 
-install:
-  - pip install selenium
-
 script:
   - whereis firefox
   - python3 -c "import selenium"
