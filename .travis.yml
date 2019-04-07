@@ -1,7 +1,11 @@
 sudo: required
 language: python
+python:
+  - "3.6"
+
 addons:
   firefox: latest
+
 env:
   global:
     - MOZ_HEADLESS=1
@@ -15,6 +19,9 @@ before_install:
   - tar -xvzf geckodriver-v0.21.0-linux64.tar.gz
   - chmod +x geckodriver
   - sudo mv geckodriver /usr/local/bin
+
+install:
+  - pip install -r tests/requirements.txt
 
 script:
   - whereis firefox
