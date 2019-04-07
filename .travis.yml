@@ -15,9 +15,11 @@ before_install:
   - tar -xvzf geckodriver-v0.21.0-linux64.tar.gz
   - chmod +x geckodriver
   - sudo mv geckodriver /usr/local/bin
+  - pip install selenium
 
 script:
   - whereis firefox
+  - python3 -c "import selenium"
   - make run
   - python3 tests/test.py
   - make stop
