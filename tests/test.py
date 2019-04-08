@@ -1,4 +1,5 @@
 import os
+from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options as ChromeOptions
@@ -24,9 +25,27 @@ class Tester:
     def screenshot(self, local_path):
         self.driver.save_screenshot(local_path)
 
-    def scan(self, url):
-        self.driver.get(url)
+    def scan(self, url, update=False):
+        self.driver.get(self.base_url)
         assert 'Glimpse ID' in self.driver.title
+
+        self.enter_url(url)
+        if update:
+            self.force_update()
+        self.press_scan()
+        self.screenshot('scanning.png')
+        
+        wait_secs = 1
+        while self.get_title() != 'Scan Results':
+            if wait_secs > 45:
+                raise('Timed out waiting for window title to equal "Scan Results"')
+            print(str(wait_secs) + '-' + '.'*wait_secs)
+            wait_secs += 1
+            sleep(1)
+
+        sleep(2)
+        self.screenshot('result.png')
+
 
     def get_scan_result(self, url):
         self.driver.get('SOMETHING/scan/{ hash_of_url }')
@@ -36,9 +55,6 @@ class Tester:
         scan_btn.click()
 
     def enter_url(self, url):
-        #url_input = self.driver.find_elements_by_class_name('form-control')
-        #print(url_input)
-        #url_input = url_input[0]
         url_input = self.driver.find_element_by_id('input-url')
         if url_input:
             url_input.send_keys(url)
@@ -57,9 +73,7 @@ class Tester:
 def main():
     base_url = os.environ.get('BASE_URL')
     tester = Tester(base_url)
-    tester.enter_url('google.com')
-    tester.force_update()
-    tester.screenshot('force_update.png')
+    tester.scan('google.com', update=False)
 
 if __name__ == '__main__':
     main()
