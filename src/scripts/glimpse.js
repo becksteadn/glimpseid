@@ -40,3 +40,13 @@ $.urlParam = function(name){
     }
     return decodeURI(results[1]) || 0;
 }
+
+
+window.addEventListener('load', function() {
+    scan_options = new Vue({
+        el: '#sect-options',
+        data: {
+            seen: false
+        }
+    })
+})
