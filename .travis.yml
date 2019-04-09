@@ -1,11 +1,14 @@
 sudo: required
 language: python
+python:
+  - "3.6"
+
 addons:
   firefox: latest
+
 env:
   global:
     - MOZ_HEADLESS=1
-    - BASE_URL="http://localhost:5500/"
 
 services:
   - docker
@@ -16,14 +19,19 @@ before_install:
   - chmod +x geckodriver
   - sudo mv geckodriver /usr/local/bin
 
+install:
+  - pip install -r tests/requirements.txt
+
 script:
   - whereis firefox
+  - python3 -c "import selenium"
   - make run
+  - make test
   - make stop
 
 before_deploy:
   - cd $TRAVIS_BUILD_DIR
-  - sed -i -e 's/var ENV = \"test\";/var ENV = \"run\";/g' src/glimpse.js
+  - sed -i -e 's/var ENV = \"test\";/var ENV = \"run\";/g' src/scripts/glimpse.js
 
 deploy:
   provider: pages
@@ -35,7 +43,8 @@ deploy:
   keep_history: true
   verbose: true
   on:
-    branch: build
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^build|frontend|backend$
 
 notifications:
   slack:

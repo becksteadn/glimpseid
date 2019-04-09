@@ -9,6 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90662247-1"></script>
+    <script src="https://unpkg.com/vue"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -16,22 +17,23 @@
 
         gtag('config', 'UA-90662247-1');
     </script>
-    <script src="glimpse.js"></script>
-    <link href="style.css" rel="stylesheet">
-    <link href="scan.css" rel="stylesheet">
-    <link href="checkbox.css" rel="stylesheet">
-    <script>
-        $(document).ready(get_scan_data());
-    </script>
+    <script src="scripts/glimpse.js"></script>
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/scan.css" rel="stylesheet">
+    <link href="styles/checkbox.css" rel="stylesheet">
 </head>
 <body>
     <center>
-        <a href="index.html"><img id="logo" src="logo.png" /></a><br>
-        <img id="screenshot-viewer" src="" />
-        <h3 class="info" id="title">title</h3>
-        <p class="info"><span style="font-weight: bold">Scanned URL: </span><span id="url">$url</span></p>
-        <p class="info"><span style="font-weight: bold">Effective URL: </span><span id="effectiveurl">$effectiveurl</span></p>
-        <p class="info" id="time">Scan</p>
-        <P class="info" id="numscans">Times Scanned</P>
+        <div id="scan">
+            <a href="index.html"><img id="logo" src="images/logo.png" /></a><br>
+            <img id="screenshot-viewer" :src="screenshot_url" :height="img_height"/>
+            <h3 class="info" id="title"><p>{{ title }}</p></h3>
+            <p class="info"><span style="font-weight: bold">Scanned URL: </span><span id="url">{{ url }}</span></p>
+            <p class="info"><span style="font-weight: bold">Effective URL: </span><span id="effectiveurl">{{ effectiveurl }}</span></p>
+            <p class="info" id="time">{{ time }}</p>
+            <p class="info" id="numscans">{{ numscans }}</p>
+        </div>
     </center>
+
+    <script src="scripts/scanned.js"></script>
 </body>

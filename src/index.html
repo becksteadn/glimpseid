@@ -7,6 +7,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90662247-1"></script>
+    <script src="https://unpkg.com/vue"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -14,15 +15,15 @@
 
         gtag('config', 'UA-90662247-1');
     </script>
-    <script src="glimpse.js"></script>
-    <link href="style.css" rel="stylesheet">
-    <link href="checkbox.css" rel="stylesheet">
+    <script src="scripts/glimpse.js"></script>
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/checkbox.css" rel="stylesheet">
 </head>
 <body>
     <div class="main-container">
-        <a href="index.html"><img id="logo" src="logo.png"/></a>
+        <a href="index.html"><img id="logo" src="images/logo.png"/></a>
         <hr>
-        <p style="padding-bottom:10px;"></p>
+        <p style="padding-bottom:10px;"></p>    
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
@@ -38,7 +39,7 @@
                                         <i class="fas fa-search h4 text-body"></i>
                                     </div>
                                     <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless" type="text" name="url" placeholder="Scan a URL">
+                                        <input id="input-url" class="form-control form-control-lg form-control-borderless" type="text" name="url" placeholder="Scan a URL">
                                     </div>
                                     <div class="col-auto">
                                         <button class="btn btn-lg btn-success" id="btn-override" type="submit">Scan</button>
@@ -51,13 +52,11 @@
                     <p class="tip" id="scan-hint">Enter in a URL and hit the scan button to have Glimpse load the page in a remote browser and take a screenshot.</p>
                 </div>
                 <div class="container">
-                    <label class="chkcontainer">Force Update
+                    <label class="chkcontainer">
+                            <p title="By default, a screenshot from a previous scan will be used. Select this to rescan a URL.">Force Update</p>
                             <input type="checkbox" id="force-update">
                             <span class="checkmark"></span>
                     </label>
-                    <div class="tip">What's This
-                        <div class="tooltip">By default, a screenshot from a previous scan will be used. Select this to rescan a URL.</div>
-                    </div>
                 </div>
             </form>
         </center>
@@ -80,6 +79,12 @@
             <p><a href="https://scriptingis.life/res/slides/Build%20a%20Modern%20API%20with%20AWS.pdf"><span>Presentation Slides</span></a></p>
             <p><a href="https://github.com/becksteadn/"><span>Other Projects</span></a></p>
             <p><a href="https://scriptingis.life"><span>My Blog</span></a></p>
+        </div>
+        <div class="column">
+            <h3>Support Me</h3>
+            <p>Make a small donation to help this project grow.</p>
+
+            <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/becksteadn"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
         </div>
     </div>
 
