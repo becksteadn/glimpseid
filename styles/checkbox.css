@@ -29,7 +29,11 @@
   left: 42%;
   height: 25px;
   width: 25px;
-  background-color: #eee;
+  background-color: #ebebeb;
+}
+
+.chk-label {
+  margin-left: 25px;
 }
 
 /* On mouse-over, add a grey background color */
@@ -39,7 +43,7 @@
 
 /* When the checkbox is checked, add a blue background */
 .chkcontainer input:checked ~ .checkmark {
-  background-color: orange;
+  background-color: #ffc107;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

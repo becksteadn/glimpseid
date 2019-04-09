@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90662247-1"></script>
     <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-select@latest"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -31,43 +32,66 @@
             <form class="card card-sm" id="form-override" onsubmit="return screenshot_url(this);">
                 <div class="container">
                     <br/>
-                
-                        <div class="col-12 col-md-10 col-lg-8">
-                            
-                                <div class="card-body row no-gutters align-items-center" id="container-override">
-                                    <div class="col-auto">
-                                        <i class="fas fa-search h4 text-body"></i>
-                                    </div>
-                                    <div class="col">
-                                        <input id="input-url" class="form-control form-control-lg form-control-borderless" type="text" name="url" placeholder="Scan a URL">
-                                    </div>
-                                    <div class="col-auto">
-                                        <button class="btn btn-lg btn-success" id="btn-override" type="submit">Scan</button>
-                                    </div>
-                                </div>
+
+                    <div class="col-12 col-md-10 col-lg-8">                            
+                        <div class="card-body row no-gutters align-items-center" id="container-override">
+                            <div class="col-auto">
+                                <i class="fas fa-search h4 text-body"></i>
+                            </div>
+                            <div class="col">
+                                <input id="input-url" class="form-control form-control-lg form-control-borderless form-control-nofocus" type="text" name="url" placeholder="Scan a URL">
+                            </div>
+                            <div class="col-auto">
+                                <button id="btn-scan" class="btn btn-lg btn-danger btn-primary" type="submit">Scan</button>
+                                <button id="btn-options" class="btn btn-lg btn-options btn-primary form-control-nofocus" type="button" onclick="scan_options.seen = !scan_options.seen">
+                                    <i class="fas fa-cogs h4 text-body"></i>
+                                </button>
+                            </div>
+
                         </div>
                     </div>
-
-                <div class="container">
                     <p class="tip" id="scan-hint">Enter in a URL and hit the scan button to have Glimpse load the page in a remote browser and take a screenshot.</p>
+
+                    <!--
+                        SCAN OPTIONS
+                    -->
+                    <div class="card card-sm border-warning" id="sect-options" v-if="seen">
+                        <div class="row row-clear">
+                            <div class="col">
+                                <!-- User-Agent Selector -->
+                                <v-select :options="ua_options" v-model="ua_selected"></v-select>
+                                <span class="tip">{{ ua_selected.value }}</span>
+                                <input v-if="ua_selected.value == 'custom'" v-model="ua_custom" class="form-control form-control-nofocus" style="margin-top: 10px" type="text" placeholder=" User-Agent">
+                                <span class="tip">{{ ua_custom }}</span>
+                                <br>
+                                <br>
+
+                                <!-- Force Update Checkbox -->
+                                <label class="form-option chkcontainer">
+                                    <p class="chk-label" title="By default, a screenshot from a previous scan will be used. Select this to rescan a URL.">Force Update</p>
+                                    <input type="checkbox" id="force-update">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
-                <div class="container">
-                    <label class="chkcontainer">
-                            <p title="By default, a screenshot from a previous scan will be used. Select this to rescan a URL.">Force Update</p>
-                            <input type="checkbox" id="force-update">
-                            <span class="checkmark"></span>
-                    </label>
-                </div>
+
             </form>
         </center>
 
         <h2 class="scan-status"></h2>
         <h4 class="url-display"></h4>
         <center>
-            <img id="screenshot-viewer" src="" />
+            <img id="loading-gif" src="" />
         </center>
     </div>
 
+
+    <!--
+        FOOTER
+    -->
     <div class="row footer">
         <div class="column">
             <h3>About</h3>
@@ -88,4 +112,5 @@
         </div>
     </div>
 
+    <script src="scripts/vue.js"></script>
 </body>
