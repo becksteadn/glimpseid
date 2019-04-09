@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90662247-1"></script>
     <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-select@latest"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -31,42 +32,49 @@
             <form class="card card-sm" id="form-override" onsubmit="return screenshot_url(this);">
                 <div class="container">
                     <br/>
-
-                        <div class="col-12 col-md-10 col-lg-8">
-                            
-                                <div class="card-body row no-gutters align-items-center" id="container-override">
-                                    <div class="col-auto">
-                                        <i class="fas fa-search h4 text-body"></i>
-                                    </div>
-                                    <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless form-control-nofocus" type="text" name="url" placeholder="Scan a URL">
-                                    </div>
-                                    <div class="col-auto">
-                                        <button class="btn btn-lg btn-danger btn-primary" type="submit">Scan</button>
-                                        <button class="btn btn-lg btn-options btn-primary form-control-nofocus" type="button" onclick="scan_options.seen = !scan_options.seen">
-                                            <i class="fas fa-cogs h4 text-body"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                        </div>
-                        <p class="tip" id="scan-hint">Enter in a URL and hit the scan button to have Glimpse load the page in a remote browser and take a screenshot.</p>
-
-                        <div class="card card-sm border-warning" id="sect-options" v-if="seen">
-                            <div class="row row-clear">
-                                <div class="col">
-                                    <input class="form-control form-control-lg form-control-nofocus" type="text" placeholder=" Custom User-Agent">
-                                    <label class="form-option chkcontainer">
-                                            <p class="chk-label" title="By default, a screenshot from a previous scan will be used. Select this to rescan a URL.">Force Update</p>
-                                            <input type="checkbox" id="force-update">
-                                            <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                
+                    <div class="col-12 col-md-10 col-lg-8">                            
+                        <div class="card-body row no-gutters align-items-center" id="container-override">
+                            <div class="col-auto">
+                                <i class="fas fa-search h4 text-body"></i>
+                            </div>
+                            <div class="col">
+                                <input class="form-control form-control-lg form-control-borderless form-control-nofocus" type="text" name="url" placeholder="Scan a URL">
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-lg btn-danger btn-primary" type="submit">Scan</button>
+                                <button class="btn btn-lg btn-options btn-primary form-control-nofocus" type="button" onclick="scan_options.seen = !scan_options.seen">
+                                    <i class="fas fa-cogs h4 text-body"></i>
+                                </button>
                             </div>
                         </div>
-                        
-
                     </div>
+                    <p class="tip" id="scan-hint">Enter in a URL and hit the scan button to have Glimpse load the page in a remote browser and take a screenshot.</p>
+
+                    <!--
+                        SCAN OPTIONS
+                    -->
+                    <div class="card card-sm border-warning" id="sect-options" v-if="seen">
+                        <div class="row row-clear">
+                            <div class="col">
+                                <!-- User-Agent Selector -->
+                                <v-select :options="ua_options" v-model="ua_selected"></v-select>
+                                <span class="tip">{{ ua_selected.value }}</span>
+                                <input v-if="ua_selected.value == 'custom'" v-model="ua_custom" class="form-control form-control-nofocus" style="margin-top: 10px" type="text" placeholder=" User-Agent">
+                                <span class="tip">{{ ua_custom }}</span>
+                                <br>
+                                <br>
+
+                                <!-- Force Update Checkbox -->
+                                <label class="form-option chkcontainer">
+                                    <p class="chk-label" title="By default, a screenshot from a previous scan will be used. Select this to rescan a URL.">Force Update</p>
+                                    <input type="checkbox" id="force-update">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
 
             </form>
         </center>
@@ -78,6 +86,10 @@
         </center>
     </div>
 
+
+    <!--
+        FOOTER
+    -->
     <div class="row footer">
         <div class="column">
             <h3>About</h3>
@@ -97,4 +109,6 @@
             <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/becksteadn"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
         </div>
     </div>
+
+    <script src="scripts/vue.js"></script>
 </body>
