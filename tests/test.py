@@ -1,5 +1,6 @@
 import os
 from time import sleep
+import selenium
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options as ChromeOptions
@@ -30,13 +31,14 @@ class Tester:
         assert 'Glimpse ID' in self.driver.title
 
         self.enter_url(url)
+
+        self.show_options() # Remove when element has been hidden, not removed
         if update:
             self.force_update()
         self.press_scan()
-        self.screenshot('scanning.png')
         
         wait_secs = 1
-        while self.get_title() != 'Scan Results':
+        while 'Scan Results' not in self.get_title():
             if wait_secs > 45:
                 raise('Timed out waiting for window title to equal "Scan Results"')
             print(str(wait_secs) + '-' + '.'*wait_secs)
@@ -90,11 +92,7 @@ class Tester:
 def main():
     base_url = os.environ.get('BASE_URL')
     tester = Tester(base_url)
-    tester.show_options()
-    tester.screenshot('options_open.png')
-    tester.close_options()
-    tester.screenshot('options_closed.png')
-    #tester.scan('google.com', update=False)
+    tester.scan('google.com', update=True)
 
 if __name__ == '__main__':
     main()
