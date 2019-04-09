@@ -51,8 +51,25 @@ class Tester:
         self.driver.get('SOMETHING/scan/{ hash_of_url }')
 
     def press_scan(self):
-        scan_btn = self.driver.find_element_by_id('btn-override')
+        scan_btn = self.driver.find_element_by_id('btn-scan')
         scan_btn.click()
+
+    def show_options(self):
+        opts_btn = self.driver.find_element_by_id('btn-options')
+
+        try:
+            checkmark = self.driver.find_element_by_id('force-update')
+        except selenium.common.exceptions.NoSuchElementException:
+            opts_btn.click()
+
+    def close_options(self):
+        opts_btn = self.driver.find_element_by_id('btn-options')
+
+        try:
+            checkmark = self.driver.find_element_by_id('force-update')
+            opts_btn.click()
+        except selenium.common.exceptions.NoSuchElementException:
+            pass
 
     def enter_url(self, url):
         url_input = self.driver.find_element_by_id('input-url')
@@ -73,7 +90,11 @@ class Tester:
 def main():
     base_url = os.environ.get('BASE_URL')
     tester = Tester(base_url)
-    tester.scan('google.com', update=False)
+    tester.show_options()
+    tester.screenshot('options_open.png')
+    tester.close_options()
+    tester.screenshot('options_closed.png')
+    #tester.scan('google.com', update=False)
 
 if __name__ == '__main__':
     main()
