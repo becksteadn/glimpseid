@@ -15,7 +15,7 @@ class Tester:
         #chrome_options.add_argument('--window-size=1920x1080')
         #self.driver = webdriver.Chrome(chrome_options=chrome_options)
         firefox_options = FirefoxOptions()
-        firefox_options.headless = True
+        firefox_options.headless = False
         self.driver = Firefox(options=firefox_options)
         self.base_url = base_url
         self.driver.get(self.base_url)

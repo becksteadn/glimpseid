@@ -15,7 +15,7 @@ function screenshot_url(submitForm) {
 }
 
 function screenshot(url) {
-    var force_update = document.getElementById('force-update').checked;
+    var force_update = scan_options.force_update;
     var custom_ua = encodeURI(scan_options.ua_selected.value);
     var send_url = API_URL + "scan?url=" + encodeURIComponent(url) + "&update=" + force_update + "&user-agent=" + custom_ua;
     $.when($.ajax(send_url).done(function(data, textStatus, jqXHR) {
