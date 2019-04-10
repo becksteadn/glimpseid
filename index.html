@@ -59,10 +59,11 @@
                         <div class="row row-clear">
                             <div class="col">
                                 <!-- User-Agent Selector -->
-                                <v-select :options="ua_options" v-model="ua_selected"></v-select>
-                                <span class="tip">{{ ua_selected.value }}</span>
-                                <input v-if="ua_selected.value == 'custom'" v-model="ua_custom" class="form-control form-control-nofocus" style="margin-top: 10px" type="text" placeholder=" User-Agent">
-                                <span class="tip">{{ ua_custom }}</span>
+                                <v-select class="form-control-lg" :options="ua_options" v-model="ua_selected"></v-select>
+                                <span>{{ ua_selected.value }}</span>
+                                <div v-if="ua_selected.label == 'Custom User-Agent'">
+                                    <input v-model="ua_options[0].value" class="form-control form-control-lg form-control-nofocus" style="margin-top: 10px" type="text" placeholder=" User-Agent">
+                                </div>
                                 <br>
                                 <br>
 

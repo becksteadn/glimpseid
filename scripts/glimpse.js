@@ -16,7 +16,9 @@ function screenshot_url(submitForm) {
 
 function screenshot(url) {
     var force_update = document.getElementById('force-update').checked;
-    $.when($.ajax(API_URL + "scan?url=" + encodeURIComponent(url) + "&update=" + force_update).done(function(data, textStatus, jqXHR) {
+    var custom_ua = encodeURI(scan_options.ua_selected.value);
+    var send_url = API_URL + "scan?url=" + encodeURIComponent(url) + "&update=" + force_update + "&user-agent=" + custom_ua;
+    $.when($.ajax(send_url).done(function(data, textStatus, jqXHR) {
         var json = JSON.parse(jqXHR.responseText);
         if (json.hasOwnProperty('errorMessage')){
             $("#loading-gif").attr("src", "");
