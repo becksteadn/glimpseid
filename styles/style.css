@@ -55,10 +55,8 @@ body {
     background-color: #ebebeb
 }
 
-.column {
+.col-footer {
     padding: 25px;
-    float: left;
-    width: 33%;
 }
 
 /* Clear floats after the columns */
