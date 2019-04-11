@@ -9,12 +9,15 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90662247-1"></script>
     <script src="https://vuejs.org/js/vue.min.js"></script>
     <script src="https://unpkg.com/vue-select@latest"></script>
+    <!-- g-analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90662247-2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'UA-90662247-1');
+        gtag('config', 'UA-90662247-2');
     </script>
     <script src="scripts/glimpse.js"></script>
     <link href="styles/style.css" rel="stylesheet">
@@ -96,7 +99,9 @@
     <div class="row footer">
         <div class="column">
             <h3>About</h3>
-            <p>I used <a href="https://urlscan.io"><span>urlscan.io</span></a> a lot at my internship. Afterwards I built <a href="https://github.com/becksteadn/HTTP-Info"><span>HTTP Info</span></a>, a Docker container to screenshot a website and record HTTP requests and responses that occur when visiting the site.</p>
+            <p>Come across a strange or malicious link? Paste it here to see what it is risk-free.</p>
+            <strong>Background</strong>
+            <p>I saw a lot of suspicious links while reviewing reported phishing emails at my internship. Afterwards I built <a href="https://github.com/becksteadn/HTTP-Info"><span>HTTP Info</span></a>, a Docker container to screenshot a website and record HTTP requests and responses that occur when visiting the site.</p>
             <p>This is an extension of that project. Glimpse is a cheap, scalable API that utilizes multiple AWS services such as Lambda, S3, and API Gateway.</p>
         </div>
         <div class="column">
