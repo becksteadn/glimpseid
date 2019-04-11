@@ -32,12 +32,13 @@ script:
 before_deploy:
   - cd $TRAVIS_BUILD_DIR
   - sed -i -e 's/var ENV = \"test\";/var ENV = \"run\";/g' src/scripts/glimpse.js
+  - sed -i -e '/g-analytics/r scripts/tracking.html'
   - sed -i -e 's/<script src="https:\/\/unpkg.com\/vue"><\/script>/<script src=\"https:\/\/vuejs.org\/js\/vue.min.js\"><\/script>/' src/index.html
   - sed -i -e 's/<script src="https:\/\/unpkg.com\/vue"><\/script>/<script src=\"https:\/\/vuejs.org\/js\/vue.min.js\"><\/script>/' src/scan.html
 
 deploy:
   provider: pages
-  target_branch: gh-pages
+  target_branch: master
   local_dir: src
   skip_cleanup: true
   github_token:
