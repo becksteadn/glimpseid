@@ -3,7 +3,7 @@ Vue.component('v-select', VueSelect.VueSelect);
 var scan_options = new Vue({
     el: '#sect-options',
     data: {
-        seen: false,
+        seen: true,
         ua_options: [
             {label: 'Custom User-Agent', value: ''},
             {label: 'Chrome', value: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'},
