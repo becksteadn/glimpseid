@@ -9,6 +9,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90662247-1"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/vue-select@latest"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
     <!-- g-analytics -->
     <script src="scripts/glimpse.js"></script>
     <link href="styles/style.css" rel="stylesheet">
@@ -63,7 +64,7 @@
 
                                 <!-- Force Update Checkbox -->
                                 <label class="form-option chkcontainer">
-                                    <p class="chk-label" title="By default, a screenshot from a previous scan will be used. Select this to rescan a URL.">Force Update</p>
+                                    <p class="chk-label" title="By default, a screenshot from a previous scan will be used. Select this to rescan a URL.">Force an Update</p>
                                     <input v-model="force_update" type="checkbox" id="force-update">
                                     <span class="checkmark"></span>
                                 </label>
